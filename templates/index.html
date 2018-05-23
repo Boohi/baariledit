@@ -33,6 +33,43 @@
       function checker() {
         $.get('/checker');
       }
+      function allRed() {
+        $.ajax({
+          type: 'POST',
+          contentType: 'application/json',
+          url: '/setColor',
+          dataType : 'json',
+          data : JSON.stringify({
+            'r':255,
+            'g':0,
+            'b':0
+          }),
+          success : function(result) {
+            console.log(result);
+          },error : function(result){
+             console.log(result);
+          }
+        });
+      }
+
+      function allBlue() {
+        $.ajax({
+          type: 'POST',
+          contentType: 'application/json',
+          url: '/setColor',
+          dataType : 'json',
+          data : JSON.stringify({
+            'r':0,
+            'g':0,
+            'b':255
+          }),
+          success : function(result) {
+            console.log(result);
+          },error : function(result){
+             console.log(result);
+          }
+        });
+      }
 
       function beatMatch() {
         $.get('/fft');
@@ -103,6 +140,10 @@
       <tr>
         <td><button id="b7" onclick="lounge()">Lounge</button></td>
         <td><button id="b8" onclick="beatMatch()">Beat Match</button></td>
+      </tr>
+      <tr>
+        <td><button id="b9" onclick="allRed()">Red</button></td>
+        <td><button id="b10" onclick="allBlue()">Blue</button></td>
       </tr>
 	  </table>
 	</div>

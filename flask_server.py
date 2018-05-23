@@ -70,7 +70,6 @@ def rainbowCycle():
 @app.route('/setColor', methods=['POST'])
 def setColor():
 	data = request.json
-
 	red = data['r']
 	green = data['g']
 	blue = data['b']
